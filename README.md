@@ -68,7 +68,7 @@ Now you can run "natural --help".
 
 ## Usage
 
-"""bash
+```bash
 # Provide your API key
 natural --auth YOUR_GROQ_API_KEY
 
@@ -80,7 +80,7 @@ natural copy "test.txt" and paste it to "/tmp/test.txt"
 
 # Convert a prompt into a command and auto-execute (dangerous!)
 natural -y delete everything in /tmp
-"""
+```
 
 **Important**: If you have not set a valid API key, you will see an error message when trying to run normal prompts.
 
