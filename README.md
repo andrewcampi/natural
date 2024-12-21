@@ -26,38 +26,7 @@ cd natural
 
 ### 2. Build and install
 
-We provide an example of building a ".deb" package and installing via "apt-get".  
-*(You need "dpkg-deb" and some packaging tools installed.)*
-
-```bash
-# Inside the natural repo:
-# 1) Make sure the script is executable
-chmod +x natural
-
-# 2) Build a Debian package (example only: you'd need to structure your debian/ folder).
-mkdir -p build/usr/bin
-cp natural build/usr/bin/natural
-
-# Minimal DEBIAN control file
-mkdir -p build/DEBIAN
-cat <<EOF > build/DEBIAN/control
-Package: natural
-Version: 1.0.0
-Section: utils
-Priority: optional
-Architecture: all
-Essential: no
-Maintainer: Andrew Campi <andrewcampi@example.com>
-Description: Natural is a command-line utility to convert natural language into Ubuntu terminal commands
-EOF
-
-dpkg-deb --build build natural_1.0.0_all.deb
-
-# 3) Install using apt-get or dpkg
-sudo apt-get install ./natural_1.0.0_all.deb
-```
-
-**Alternatively**, you could just copy "natural" to "/usr/local/bin":
+Simply copy "natural" to "/usr/local/bin" with the necessary permissions:
 
 ```bash
 sudo cp natural /usr/local/bin
