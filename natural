@@ -153,8 +153,6 @@ def main():
         description="A natural language to terminal command interface using Groq."
     )
 
-    # We'll rely on argparse's default -h/--help, so we won't add it ourselves.
-
     parser.add_argument("prompt", nargs="*", help="Your natural language prompt. E.g. 'copy test.txt to /tmp'")
     parser.add_argument("--auth", metavar="API_KEY", help="Provide your Groq API key. It is saved securely.")
     parser.add_argument("--list-models", action="store_true", help="List the available models.")
@@ -163,6 +161,11 @@ def main():
     parser.add_argument("-y", action="store_true", help="Auto-accept the generation and execute immediately.")
 
     args = parser.parse_args()
+
+    # Show help menu if no arguments or empty prompt
+    if len(sys.argv) == 1 or (not args.auth and not args.list_models and not args.info and not args.prompt):
+        parser.print_help()
+        return
 
     # If user provides --auth
     if args.auth:
@@ -205,13 +208,17 @@ def main():
         print(f"Current model: {current_model}")
         return
 
+    # Only proceed with prompt if it's not empty after stripping whitespace
+    prompt_str = " ".join(args.prompt).strip()
+    if not prompt_str:
+        parser.print_help()
+        return
+
     # By default, if we are about to run a prompt, we must have a valid API key
     if not api_key or not is_api_key_valid(api_key):
         print("[Error] No valid API key found. Use 'natural --auth <API_KEY>' to set your key.")
         return
 
-    # We have a prompt and a valid API key, so let's proceed
-    prompt_str = " ".join(args.prompt).strip()
     model = args.model if args.model else DEFAULT_MODEL
 
     # For -y usage, we print the danger line first, then proceed
