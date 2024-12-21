@@ -12,7 +12,7 @@
 
 ## Prerequisites
 
-- "curl" must be installed on your system.
+- Python3 must be installed on your system, such as Python 3.12.
 - A valid **Groq API Key**.
 
 ## Installation
