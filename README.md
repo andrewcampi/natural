@@ -19,17 +19,17 @@
 
 ### 1. Clone the repository
 
-'''bash
+```bash
 git clone https://github.com/andrewcampi/natural.git
 cd natural
-'''
+```
 
 ### 2. Build and install
 
 We provide an example of building a ".deb" package and installing via "apt-get".  
 *(You need "dpkg-deb" and some packaging tools installed.)*
 
-'''bash
+```bash
 # Inside the natural repo:
 # 1) Make sure the script is executable
 chmod +x natural
@@ -55,14 +55,14 @@ dpkg-deb --build build natural_1.0.0_all.deb
 
 # 3) Install using apt-get or dpkg
 sudo apt-get install ./natural_1.0.0_all.deb
-'''
+```
 
 **Alternatively**, you could just copy "natural" to "/usr/local/bin":
 
-'''bash
+```bash
 sudo cp natural /usr/local/bin
 sudo chmod +x /usr/local/bin/natural
-'''
+```
 
 Now you can run "natural --help".
 
@@ -88,7 +88,7 @@ natural -y delete everything in /tmp
 
 ### "natural --help" Output
 
-'''bash
+```bash
 Usage: natural [options] [prompt]
 
 Examples:
@@ -112,7 +112,7 @@ Description:
   and produce a single shell command. It then optionally executes that command for you.
   If you do not specify "-y", you will be shown the generated command and asked for confirmation.
   By default, the model used is "llama-3.3-70b-versatile".
-'''
+```
 
 ## License
 
