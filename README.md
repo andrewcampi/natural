@@ -24,7 +24,7 @@ git clone https://github.com/andrewcampi/natural.git
 cd natural
 ```
 
-### 2. Build and install
+### 2. Install
 
 Simply copy "natural" to "/usr/local/bin" with the necessary permissions:
 
