@@ -58,29 +58,22 @@ natural -y delete everything in /tmp
 ### "natural --help" Output
 
 ```bash
-Usage: natural [options] [prompt]
+$ natural -h
+usage: natural [-h] [--auth API_KEY] [--list-models] [--model MODEL_NAME] [--info] [-y] [prompt ...]
 
-Examples:
-  natural copy "test.txt" and paste it to "/tmp/test.txt"
-  natural --auth <API_KEY>
-  natural --list-models
-  natural --model <model_name>
-  natural --info
-  natural -y copy home folder to /mnt/backup
+A natural language to terminal command interface using Groq.
 
-Options:
-  --auth <API_KEY>      Provide your Groq API key. It is saved securely.
-  --list-models         List the available models.
-  --model <MODEL_NAME>  Select the model to use from Groq.
-  --info                Show info about this Natural installation.
-  -y                    Auto-accept the generation and execute immediately (dangerous).
-  -h, --help            Show this help message and exit.
+positional arguments:
+  prompt              Your natural language prompt. E.g. 'copy test.txt to /tmp'
 
-Description:
-  "natural" is a CLI that uses Groq's LLM to interpret your natural language prompt
-  and produce a single shell command. It then optionally executes that command for you.
-  If you do not specify "-y", you will be shown the generated command and asked for confirmation.
-  By default, the model used is "llama-3.3-70b-versatile".
+options:
+  -h, --help          show this help message and exit
+  --auth API_KEY      Provide your Groq API key. It is saved securely.
+  --list-models       List the available models.
+  --model MODEL_NAME  Select the model to use from Groq.
+  --info              Show info about this Natural installation.
+  -y                  Auto-accept the generation and execute immediately.
+
 ```
 
 ## License
